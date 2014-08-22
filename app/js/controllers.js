@@ -1,11 +1,10 @@
 'use strict';
 
 /* Controllers */
+var myAppCtrl = angular.module('myApp.controllers', []);
 
-angular.module('myApp.controllers', [])
-  .controller('MyCtrl1', ['$scope', function($scope) {
-
-  }])
-  .controller('MyCtrl2', ['$scope', function($scope) {
-
-  }]);
+myAppCtrl.controller('movieListCtrl', function($scope, $http) {
+  $http.get('movies/movies.json').success(function(data){
+    $scope.movies = data;
+  });
+});

@@ -1,0 +1,13 @@
+Search: <input ng-model="query">
+<!-- Sort by: -->
+<!-- <select ng-model="orderProp">
+  <option value="Title">Alphabetical</option>
+</select> -->
+
+<ul>
+  <li ng-repeat="movie in movies | filter:query">
+  <span>{{movie.Title}}</span><br>
+  <span>{{movie.Year}}</span><br>
+  <span>{{movie.imdbID}}</span>
+  </li>
+</ul>
