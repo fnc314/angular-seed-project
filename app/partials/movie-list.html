@@ -1,15 +1,17 @@
 Search: <input ng-model="query">
-<!-- Sort by: -->
-<!-- <select ng-model="orderProp">
+Sort by:
+<select ng-model="orderProp">
   <option value="Title">Alphabetical</option>
-</select> -->
+  <option value="Year">Oldest</option>
+  <option value="-Year">Newest</option>
+</select>
 
 <ul>
-  <li ng-repeat="movie in movies | filter:query">
+  <li ng-repeat="movie in movies | filter:query | orderBy:orderProp">
   Title: <a href="#/movies/{{movie.imdbID}}">
     <span>{{movie.Title}}</span>
     </a><br>
   Year: <span>{{movie.Year}}</span><br>
-  iMDB ID: <a href="http://www.omdbapi.com/?i={{movie.imdbID}}&tomatoes=true&plot=full"><span>{{movie.imdbID}}</span></a>
+  <!-- iMDB ID: <a href="http://www.omdbapi.com/?i={{movie.imdbID}}&tomatoes=true&plot=full"><span>{{movie.imdbID}}</span></a> -->
   </li>
 </ul>
