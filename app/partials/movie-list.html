@@ -7,7 +7,7 @@ Search: <input ng-model="query">
 <ul>
   <li ng-repeat="movie in movies | filter:query">
   <span>{{movie.Title}}</span><br>
-  <span>{{movie.Year}}</span><br>
-  <span>{{movie.imdbID}}</span>
+  Year: <span>{{movie.Year}}</span><br>
+  iMDB ID: <a href="http://www.omdbapi.com/?i={{movie.imdbID}}"><span>{{movie.imdbID}}</span></a>
   </li>
 </ul>
