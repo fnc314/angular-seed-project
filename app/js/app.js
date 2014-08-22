@@ -2,20 +2,26 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('myApp', [
+var myApp = angular.module('myApp', [
   'ngRoute',
   'myApp.filters',
   'myApp.services',
   'myApp.directives',
   'myApp.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/movies', {
-    templateUrl: 'partials/movie-list.html',
-    controller: 'movieListCtrl'});
-  $routeProvider.when('/movies/:Title', {
-    templateUrl: 'partials/movie-details.html',
-    controller: 'movieDetailCtrl'});
-  $routeProvider.otherwise({
-    redirectTo: '/movies'});
-}]);
+])
+
+myApp.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+    when('/movies', {
+      templateUrl: 'partials/movie-list.html',
+      controller: 'movieListCtrl'
+    }).
+    when('/movies/:imdbID', {
+      templateUrl: 'partials/movie-detail.html',
+      controller: 'movieDetailCtrl'
+    }).
+    otherwise({
+      redirectTo: '/movies'
+    });
+  }]);
