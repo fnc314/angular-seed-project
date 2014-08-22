@@ -1,3 +1,5 @@
+THIS IS THE README FOR `angular-seed` WHICH IS AN ANGULARJS BASELINE OFF OF WHICH ANGULAR APPS CAN BE EASILY BUILT.  THE README IS WRITTEN BY GOOGLE AND I OWN NO PART OF IT.  IT REMAINS IN TACT UNTIL A REAL README IS WRITTEN
+
 # angular-seed — the seed for AngularJS apps
 
 This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
