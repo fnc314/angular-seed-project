@@ -12,9 +12,8 @@ myAppCtrl.controller('movieListCtrl', function($scope, $http) {
 });
 
 myAppCtrl.controller('movieDetailCtrl', function($scope, $http, $routeParams) {
-  $http.get('http://www.omdbapi.com/?i=' +
-  $routeParams.imdbID +
-  '&tomatoes=true&plot=full').success(function(data) {
+  $http.get('http://www.omdbapi.com/?tomatoes=true&plot=full&i=' +
+  $routeParams.imdbID).success(function(data) {
     $scope.movie = data;
   });
 });

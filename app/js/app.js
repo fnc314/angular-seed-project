@@ -21,7 +21,11 @@ myApp.config(['$routeProvider',
       templateUrl: 'partials/movie-detail.html',
       controller: 'movieDetailCtrl'
     }).
+    when('/search', {
+      templateUrl: 'partials/movie-search.html',
+      controller: 'movieSearchCtrl'
+    }).
     otherwise({
-      redirectTo: '/movies'
+      redirectTo: '/search'
     });
   }]);

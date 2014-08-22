@@ -1,4 +1,4 @@
-Search: <input ng-model="query">
+Filter: <input ng-model="query">
 Sort by:
 <select ng-model="orderProp">
   <option value="Title">Alphabetical</option>
@@ -11,7 +11,7 @@ Sort by:
   Title: <a href="#/movies/{{movie.imdbID}}">
     <span>{{movie.Title}}</span>
     </a><br>
-  Year: <span>{{movie.Year}}</span><br>
-  <!-- iMDB ID: <a href="http://www.omdbapi.com/?i={{movie.imdbID}}&tomatoes=true&plot=full"><span>{{movie.imdbID}}</span></a> -->
+  Media Type: <span>{{movie.Type}}</span><br>
+  Year: <span>{{movie.Year}}</span>
   </li>
 </ul>
