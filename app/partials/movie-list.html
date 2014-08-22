@@ -5,20 +5,22 @@ OMDB Search:
 </form>
 <br>
 <br>
-Filter: <input ng-model="query">
-Sort by:
+Filter Results:<br>
+<input ng-model="query">
+Sort By:
 <select ng-model="orderProp">
   <option value="Title">Alphabetical</option>
   <option value="Year">Oldest</option>
   <option value="-Year">Newest</option>
 </select>
-
+<br><br>
 <ul>
   <li ng-repeat="movie in movies | filter:query | orderBy:orderProp">
   Title: <a href="#/movies/{{movie.imdbID}}">
     <span>{{movie.Title}}</span>
     </a><br>
   Media Type: <span>{{movie.Type}}</span><br>
-  Year: <span>{{movie.Year}}</span>
+  Year: <span>{{movie.Year}}</span><br>
+  <a target="_blank" href="http://www.imdb.com/title/{{movie.imdbID}}"><span>IMDb Page</span></a>
   </li>
 </ul>
