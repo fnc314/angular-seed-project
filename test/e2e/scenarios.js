@@ -4,6 +4,15 @@
 
 describe('my app', function() {
 
+  it('should redirect index.html to index.html#/movies', function () {
+    browser.get('index.html');
+    browser.getLocationAbsUrl().then(
+      function(url) {
+        expect(url.split('#')[1]).toBe('/movies');
+      }
+    );
+  });
+
   browser.get('index.html');
 
   it('should automatically redirect to /movies when location hash/fragment is empty', function() {
@@ -19,8 +28,8 @@ describe('my app', function() {
 
 
     it('should render movies when user navigates to /movies', function() {
-      expect(element.all(by.css('[ng-view] ul')).first().getText()).
-        toMatch(/partial for movies/);
+      expect(element.all(by.css('[ng-view] select option')).first().getText()).
+        toMatch('Alphabetical');
     });
 
   });
@@ -29,13 +38,13 @@ describe('my app', function() {
   describe('details', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/details');
+      browser.get('index.html#/movies/tt0412935');
     });
 
 
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for view 2/);
+    it('should render view2 when user navigates to /movies/tt0412935', function() {
+      expect(element.all(by.css('[ng-view] h4')).first().getText()).
+        toMatch("2004");
     });
 
   });
