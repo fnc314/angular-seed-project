@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 THIS IS THE README FOR `angular-seed` WHICH IS AN ANGULARJS BASELINE OFF OF WHICH ANGULAR APPS CAN BE EASILY BUILT. THE README IS WRITTEN BY GOOGLE AND I OWN NO PART OF IT. IT REMAINS IN TACT UNTIL A REAL README IS WRITTEN
 
 # angular-seed — the seed for AngularJS apps
@@ -582,4 +581,3 @@ For more information on AngularJS please check out http://angularjs.org/
 [karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
 [http-server]: https://github.com/nodeapps/http-server
->>>>>>> 216715002162b772101e44358b63182e0ba872de
