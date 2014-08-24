@@ -26,6 +26,18 @@ describe('my app', function() {
       browser.get('index.html#/movies');
     });
 
+    it('should show 10 results from input string \'The Lord of the Rings\'', function() {
+      // search_bar is the input space on page
+      var search_bar = element(by.model('text'));
+      var search_results = element.all(by.repeater('movie in movies'));
+      // Predetermind query of 'The Lord of the Rings'
+      search_bar.sendKeys('The Lord of the Rings');
+      // Send the submit action to the form >> Equivalent to typing in the search bar and then pressing `Enter`
+      search_bar.submit();
+      // Count the results from the query (known ahead of time)
+      expect(search_results.count()).toBe(10);
+    })
+
 
     it('should render movies when user navigates to /movies', function() {
       expect(element.all(by.css('[ng-view] select option')).first().getText()).
