@@ -13,15 +13,15 @@ describe('my app', function() {
     );
   });
 
-  browser.get('index.html');
-
   it('should automatically redirect to /movies when location hash/fragment is empty', function() {
+    browser.get('index.html');
     expect(browser.getLocationAbsUrl()).toMatch("/movies");
   });
 
 
   describe('movies', function() {
 
+    // Set up and initiate API call to load DOM
     beforeEach(function() {
       browser.get('index.html#/movies');
       // search_bar is the input space on page
@@ -48,10 +48,18 @@ describe('my app', function() {
       expect(search_results.count()).toBe(1);
     });
 
-
-    it('should render movies when user navigates to /movies', function() {
-      expect(element.all(by.css('[ng-view] select option')).first().getText()).
-        toMatch('Alphabetical');
+    it('should reorder search results by \'newest\' and \'oldest\'', function() {
+      // Grab `Sort By` dropdown menu
+      var drop_down_filter = element(by.model('orderProp'));
+      var search_results = element.all(by.repeater('movie in movies'));
+      // Order results by newest
+      drop_down_filter.element(by.css('option[value="-Year"]')).click();
+      // Make sure the year is '2006'
+      expect(search_results.first(by.css('li span .Year')).getText()).toMatch("2006");
+      // Order results by oldest
+      drop_down_filter.element(by.css('option[value="Year"]')).click();
+      // Make sure the year is '1978'
+      expect(search_results.first(by.css('li span .Year')).getText()).toMatch("1978");
     });
 
   });
@@ -64,7 +72,7 @@ describe('my app', function() {
     });
 
 
-    it('should render view2 when user navigates to /movies/tt0412935', function() {
+    it('should display title release year when user navigates to /movies/tt0412935', function() {
       expect(element.all(by.css('[ng-view] h4')).first().getText()).
         toMatch("2004");
     });
